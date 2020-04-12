@@ -1,10 +1,22 @@
 //Include File system module
 const fs = require('fs');
 
-function generateRmdFile (data) {
+function generateRmdFile (data,image) {
 	let rdata =  `# ${data.project_name}
 
-${data.intro}
+${data.url}
+
+## ${data.intro}
+
+## ${data.contributing}
+
+## ${data.install}
+
+## ${data.usage}
+
+## ${data.license}
+
+# ![My Pic](${image})
  
 	`;
 	fs.writeFile('generatedReadMe.md',rdata,function (err) {

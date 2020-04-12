@@ -25,8 +25,44 @@ const project_attributes = [
     },
     {
 	    type: 'editor',
+	    name: 'url',
+        message: 'Please add url link to the deployed app',
+        default: '**Deployed Web URL**'
+    },
+    {
+	    type: 'editor',
 	    name: 'intro',
-	    message: 'Please provide a short introduction to your project'
+        message: 'Please provide a description to your project',
+        default: 'Description'
+    },
+    {
+	    type: 'editor',
+	    name: 'install',
+        message: 'Please provide installation instructions to your project',
+        default: 'Installation'
+    },
+    {
+	    type: 'editor',
+	    name: 'usage',
+        message: 'Please provide usage instructions to your project',
+        default: 'Usage'
+    },
+    {
+	    type: 'editor',
+	    name: 'license',
+        message: 'Please specify licenses for your project',
+        default: `License
+[MIT](https://choosealicense.com/licenses/mit/)`
+    },
+    {
+	    type: 'editor',
+	    name: 'contributing',
+        message: 'Please specify Contributing info for your project',
+        default: function() {
+            return `Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Please make sure to update tests as appropriate.`;
+        }
     }
 ];
 
@@ -39,8 +75,8 @@ inquirer.prompt(entry_question).then(response => {
         inquirer.prompt(project_attributes).then(responses => {
             console.log(JSON.stringify(responses, null, ' '));
 
-	    console.log(data.name);
-	    crme.generateRmdFile(responses);	
+	    console.log(data.avatar_url);
+	    crme.generateRmdFile(responses,data.avatar_url);
         });
     })
     //TODO:- Handle error status from axios guthub response	
