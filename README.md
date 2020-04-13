@@ -1,1 +1,4 @@
 # ReadMeGenerator
+
+## Demo
+![](AnimatedGifDemo.gif)
